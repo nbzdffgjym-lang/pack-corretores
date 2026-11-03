@@ -79,6 +79,12 @@ footer p{max-width:760px;margin:0 auto 8px}
 @media(min-width:760px){.hero .grid{grid-template-columns:1.3fr 1fr}.cards.c2{grid-template-columns:1fr 1fr}.cards.c3{grid-template-columns:repeat(3,1fr)}.two{grid-template-columns:1fr 1fr}.mock{width:270px;height:360px}section{padding:80px 0}}
 @media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
 </style>
+<!-- Meta Pixel -->
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init','995824139594088');fbq('track','PageView');fbq('track','ViewContent',{content_name:'Pack 150 Prompts IA para Corretores',value:27.90,currency:'BRL'});
+</script>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=995824139594088&ev=PageView&noscript=1"/></noscript>
 </head>
 <body>
 <header class="hero">
@@ -260,8 +266,9 @@ const CHECKOUT_URL = 'https://pay.hotmart.com/R108310121D';
 (function(){
   var notice=document.getElementById('notice'),t;
   document.querySelectorAll('.cta').forEach(function(a){
-    a.setAttribute('href',CHECKOUT_URL);
+    a.setAttribute('href',CHECKOUT_URL+(location.search?(CHECKOUT_URL.indexOf('?')>-1?'&':'?')+location.search.slice(1):''));
     a.addEventListener('click',function(e){
+      if(window.fbq)fbq('track','InitiateCheckout',{value:27.90,currency:'BRL'});
       if(CHECKOUT_URL==='#checkout'){
         e.preventDefault();notice.classList.add('show');
         clearTimeout(t);t=setTimeout(function(){notice.classList.remove('show')},2600);
